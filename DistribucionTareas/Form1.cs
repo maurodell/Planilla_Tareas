@@ -31,7 +31,9 @@ namespace DistribucionTareas
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView4.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            
+
+            dataGridView1.RowHeadersWidth = 30;
+            ActualizarGrilla(dataGridView1, _d.RetornarListaColaboradores());
         }
         public void ActualizarGrilla(DataGridView pDGV, object pObjeto)
         {
@@ -56,8 +58,20 @@ namespace DistribucionTareas
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
     }

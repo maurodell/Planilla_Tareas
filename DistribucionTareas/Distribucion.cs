@@ -17,8 +17,22 @@ namespace DistribucionTareas
             _lt = new List<Tarea>();
         }
         public List<Colaborador> RetornarListaColaboradores()
-        { 
-            return _lc;
+        {
+            List<Colaborador> _auxC;
+            try
+            {
+                _auxC = new List<Colaborador>();
+                foreach (Colaborador _c in _lc)
+                {
+                    _auxC.Add(new Colaborador(_c.Legajo, _c.Nombre));
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return _auxC;
         }
         public void BorrarColaborador(Colaborador pColaborador)
         {

@@ -1,7 +1,6 @@
 C:\Users\mdo\Desktop\Analista Programador\2 año\1 cuatri\POO\Repaso propios\Distribución Tareas\DistribucionTareas\DistribucionTareas\bin\Debug\DistribucionTareas.exe.config
 C:\Users\mdo\Desktop\Analista Programador\2 año\1 cuatri\POO\Repaso propios\Distribución Tareas\DistribucionTareas\DistribucionTareas\bin\Debug\DistribucionTareas.exe
 C:\Users\mdo\Desktop\Analista Programador\2 año\1 cuatri\POO\Repaso propios\Distribución Tareas\DistribucionTareas\DistribucionTareas\bin\Debug\DistribucionTareas.pdb
-C:\Users\mdo\Desktop\Analista Programador\2 año\1 cuatri\POO\Repaso propios\Distribución Tareas\DistribucionTareas\DistribucionTareas\obj\Debug\DistribucionTareas.csproj.AssemblyReference.cache
 C:\Users\mdo\Desktop\Analista Programador\2 año\1 cuatri\POO\Repaso propios\Distribución Tareas\DistribucionTareas\DistribucionTareas\obj\Debug\DistribucionTareas.Form1.resources
 C:\Users\mdo\Desktop\Analista Programador\2 año\1 cuatri\POO\Repaso propios\Distribución Tareas\DistribucionTareas\DistribucionTareas\obj\Debug\DistribucionTareas.Properties.Resources.resources
 C:\Users\mdo\Desktop\Analista Programador\2 año\1 cuatri\POO\Repaso propios\Distribución Tareas\DistribucionTareas\DistribucionTareas\obj\Debug\DistribucionTareas.csproj.GenerateResource.cache

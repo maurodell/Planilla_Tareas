@@ -66,7 +66,15 @@ namespace DistribucionTareas
         {
             try
             {
-
+                if (dataGridView1.Rows.Count>0)
+                {
+                    _d.BorrarColaborador(dataGridView1.SelectedRows[0].DataBoundItem as Colaborador);
+                    ActualizarGrilla(dataGridView1, _d.RetornarListaColaboradores());
+                }
+                else
+                {
+                    throw new Exception("No hay colaboradores para borrar");
+                }
             }
             catch (Exception ex)
             {

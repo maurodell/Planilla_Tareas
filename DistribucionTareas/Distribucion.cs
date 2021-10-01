@@ -40,7 +40,11 @@ namespace DistribucionTareas
             {
                 if (pColaborador != null)
                 {
-                    _lc.Remove(pColaborador);
+                    Colaborador _aux = _lc.Find(x=>x.Legajo == pColaborador.Legajo);
+                    if (_aux!=null)
+                    {
+                        _lc.Remove(_aux);
+                    }
                 }
                 else
                 {
@@ -74,15 +78,21 @@ namespace DistribucionTareas
         }
         public List<Tarea> RetornarListaTareas()
         {
+            List<Tarea> _auxT = new List<Tarea>();
             try
             {
-                return _lt;
+                foreach (Tarea _t in _lt)
+                {
+                    _auxT.Add(new Tarea(_t.Categoría, _t.Cliente, _t.Descripcion, _t.Fecha,
+                        _t.Get_Colaborador()!=null?new Colaborador(_t.Get_Colaborador().Legajo, _t.Get_Colaborador().Nombre):null));
+                }
             }
             catch (Exception ex)
             {
 
                 throw ex;
             }
+            return _auxT;
         }
         public void AgregarTarear(Tarea pTarea)
         {

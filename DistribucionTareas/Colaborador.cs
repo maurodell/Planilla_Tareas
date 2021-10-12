@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace DistribucionTareas
 {
-    class Colaborador
+    class Colaborador : IDisposable
     {
+        bool _flag = false;
         List<Tarea> _listaTareas;
         public Colaborador()
         {
@@ -23,7 +24,16 @@ namespace DistribucionTareas
         }
         public void AgregarTarea(Tarea pTarea)
         {
-            _listaTareas.Add(new Tarea(pTarea.Categoría, pTarea.Cliente, pTarea.Descripcion, pTarea.Fecha));
+            try
+            {
+                _listaTareas.Add(new Tarea(pTarea.Categoría, pTarea.Cliente, pTarea.Descripcion, pTarea.Fecha));
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
         public List<Tarea> RetornarListaTareas()
         {
@@ -75,9 +85,23 @@ namespace DistribucionTareas
                 throw ex;
             }
         }
+
+        public void Dispose()
+        {
+            if (!_flag)
+            {
+                _listaTareas = null;
+                _flag = true;
+            }
+        }
+
         ~Colaborador()
         {
-            _listaTareas = null;
+            if (!_flag)
+            {
+                _listaTareas = null;
+            }
+            
         }
     }
 }

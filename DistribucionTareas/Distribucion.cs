@@ -45,6 +45,10 @@ namespace DistribucionTareas
                     {
                         _lc.Remove(_aux);
                     }
+                    else
+                    {
+                        throw new Exception("Lista vacía");
+                    }
                 }
                 else
                 {
@@ -83,7 +87,7 @@ namespace DistribucionTareas
             {
                 foreach (Tarea _t in _lt)
                 {
-                    _auxT.Add(new Tarea(_t.Categoría, _t.Cliente, _t.Descripcion, _t.Fecha,
+                    _auxT.Add(new Tarea(_t.Codigo, _t.Categoría, _t.Cliente, _t.Descripcion, _t.Fecha,
                         _t.Get_Colaborador()!=null?new Colaborador(_t.Get_Colaborador().Legajo, _t.Get_Colaborador().Nombre):null));
                 }
             }
@@ -100,7 +104,7 @@ namespace DistribucionTareas
             {
                 if (pTarea!=null)
                 {
-                    _lt.Add(new Tarea(pTarea.Categoría, pTarea.Cliente, pTarea.Descripcion, pTarea.Fecha));
+                    _lt.Add(new Tarea(pTarea.Codigo, pTarea.Categoría, pTarea.Cliente, pTarea.Descripcion, pTarea.Fecha));
                 }
                 else
                 {
@@ -117,14 +121,24 @@ namespace DistribucionTareas
         {
             try
             {
-                if (pTarea != null)
+                if (pTarea!=null)
                 {
-                    _lt.Remove(pTarea);
+                    Tarea _auxTarea = _lt.Find(x=>x.Cliente == pTarea.Cliente);
+                    if (_auxTarea != null)
+                    {
+                        _auxTarea.Set_Colaborador(null);
+                        _lt.Remove(_auxTarea);
+                    }
+                    else
+                    {
+                        throw new Exception("La tarea esta nula");
+                    }
                 }
                 else
                 {
-                    throw new Exception("La tarea esta nula");
+                    throw new Exception("Tareas vacías");
                 }
+
             }
             catch (Exception ex)
             {

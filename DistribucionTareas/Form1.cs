@@ -14,10 +14,12 @@ namespace DistribucionTareas
     public partial class Form1 : Form
     {
         Distribucion _d;
+        Colaborador _c;
         public Form1()
         {
             InitializeComponent();
             _d = new Distribucion();
+            _c = new Colaborador();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -34,6 +36,15 @@ namespace DistribucionTareas
 
             dataGridView1.RowHeadersWidth = 30;
             ActualizarGrilla(dataGridView1, _d.RetornarListaColaboradores());
+
+            dataGridView2.RowHeadersWidth = 30;
+            ActualizarGrilla(dataGridView2, _d.RetornarListaTareas());
+
+            //Inteface Dispose
+            if (_c is IDisposable)
+            {
+                _c.Dispose();
+            }
         }
         public void ActualizarGrilla(DataGridView pDGV, object pObjeto)
         {
@@ -45,10 +56,10 @@ namespace DistribucionTareas
         {
             try
             {
-                string _legajo = Interaction.InputBox("Legajo: ");
+                string _legajo = Interaction.InputBox("Legajo: ", "Agregar Cliente");
                 if (_legajo.Length>0)
                 {
-                    _d.AgregarColaborador(new Colaborador(_legajo, Interaction.InputBox("Nombre: ")));
+                    _d.AgregarColaborador(new Colaborador(_legajo, Interaction.InputBox("Nombre: ", "Agregar Cliente")));
                     ActualizarGrilla(dataGridView1, _d.RetornarListaColaboradores());
                 }
                 else
@@ -58,7 +69,7 @@ namespace DistribucionTareas
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "INGRESAR LEGAJO", MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
@@ -80,6 +91,50 @@ namespace DistribucionTareas
             {
 
                 throw ex;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DateTime fecha = DateTime.Today;
+                string _cliente = Interaction.InputBox("Cliente: ", "Agregar Tarea");
+                if (_cliente.Length>0)
+                {
+                    _d.AgregarTarear(new Tarea(Interaction.InputBox("Categoría: ", "Agregar Tarea"), _cliente, Interaction.InputBox("Descripción: ", "Agregar Tarea"), fecha));
+                    ActualizarGrilla(dataGridView2, _d.RetornarListaTareas());
+                }
+                else
+                {
+                    throw new Exception("Debe especificar un cliente");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message,"INGRESAR CLIENTE", MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView2.Rows.Count>0)
+                {
+                    _d.BorrarTarea(dataGridView2.SelectedRows[0].DataBoundItem as Tarea);
+                    ActualizarGrilla(dataGridView2, _d.RetornarListaTareas());
+                }
+                else
+                {
+                    throw new Exception("La lista está vacía");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message,"LISTA VACÍA", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
             }
         }
     }

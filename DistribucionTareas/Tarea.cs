@@ -17,20 +17,23 @@ namespace DistribucionTareas
         {
             _colaborador = pColaborador;
         }
-        public Tarea(string pCategorias, string pCliente, string pDescripcion, DateTime pFecha) : this()
+        public Tarea(string pCodigo, string pCategorias, string pCliente, string pDescripcion, DateTime pFecha) : this()
         {
+            this.Codigo = pCodigo;
             this.Categoría = pCategorias;
             this.Cliente = pCliente;
             this.Descripcion = pDescripcion;
             this.Fecha = pFecha;
         }
-        public Tarea(string pCategorias, string pCliente, string pDescripcion, DateTime pFecha, Colaborador pColaborador) : this(pColaborador)
+        public Tarea(string pCodigo, string pCategorias, string pCliente, string pDescripcion, DateTime pFecha, Colaborador pColaborador) : this(pColaborador)
         {
+            this.Codigo = pCodigo;
             this.Categoría = pCategorias;
             this.Cliente = pCliente;
             this.Descripcion = pDescripcion;
             this.Fecha = pFecha;
         }
+        public string Codigo { get; set; }
         public string Categoría { get; set; }
         public string Cliente { get; set; }
         public string Descripcion { get; set; }

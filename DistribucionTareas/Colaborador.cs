@@ -26,7 +26,7 @@ namespace DistribucionTareas
         {
             try
             {
-                _listaTareas.Add(new Tarea(pTarea.Categoría, pTarea.Cliente, pTarea.Descripcion, pTarea.Fecha));
+                _listaTareas.Add(new Tarea(pTarea.Codigo, pTarea.Categoría, pTarea.Cliente, pTarea.Descripcion, pTarea.Fecha, pTarea.Get_Colaborador()));
             }
             catch (Exception ex)
             {
@@ -42,7 +42,7 @@ namespace DistribucionTareas
             {
                 foreach (Tarea tareas in _listaTareas)
                 {
-                    _auxLista.Add(new Tarea(tareas.Categoría, tareas.Cliente, tareas.Descripcion, tareas.Fecha,
+                    _auxLista.Add(new Tarea(tareas.Codigo, tareas.Categoría, tareas.Cliente, tareas.Descripcion, tareas.Fecha,
                                     tareas.Get_Colaborador()!=null?new Colaborador(tareas.Get_Colaborador().Legajo, tareas.Get_Colaborador().Nombre):null));
                 }
             }
@@ -57,10 +57,11 @@ namespace DistribucionTareas
         {
             try
             {
-                if (pTarea!=null)
+                Tarea _auxTarea = _listaTareas.Find(x=>x.Codigo == pTarea.Codigo);
+                if (_auxTarea != null)
                 {
-                    pTarea.Set_Colaborador(null);
-                    _listaTareas.Remove(pTarea);
+                    _auxTarea.Set_Colaborador(null);
+                    _listaTareas.Remove(_auxTarea);
                 }
             }
             catch (Exception ex)
@@ -73,11 +74,10 @@ namespace DistribucionTareas
         {
             try
             {
-                Tarea _listTarea = new Tarea();
+                Tarea _listTarea = _listaTareas.Find(x=>x.Codigo == pTarea.Codigo);
                 _listTarea.Categoría = pTarea.Categoría;
                 _listTarea.Cliente = pTarea.Cliente;
                 _listTarea.Descripcion = pTarea.Descripcion;
-                _listTarea.Fecha = pTarea.Fecha;
             }
             catch (Exception ex)
             {

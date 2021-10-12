@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DistribucionTareas
 {
@@ -123,7 +124,7 @@ namespace DistribucionTareas
             {
                 if (pTarea!=null)
                 {
-                    Tarea _auxTarea = _lt.Find(x=>x.Cliente == pTarea.Cliente);
+                    Tarea _auxTarea = _lt.Find(x=>x.Codigo == pTarea.Codigo);
                     if (_auxTarea != null)
                     {
                         _auxTarea.Set_Colaborador(null);
@@ -142,8 +143,7 @@ namespace DistribucionTareas
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                MessageBox.Show(ex.Message);  
             }
         }
         public void ModificarTarea(Tarea pTarea)

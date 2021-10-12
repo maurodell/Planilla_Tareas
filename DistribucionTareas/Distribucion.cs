@@ -42,7 +42,7 @@ namespace DistribucionTareas
                 if (pColaborador != null)
                 {
                     Colaborador _aux = _lc.Find(x=>x.Legajo == pColaborador.Legajo);
-                    if (_aux!=null)
+                    if (_aux!=null && _aux.RetornarListaTareas().Count==0)
                     {
                         _lc.Remove(_aux);
                     }
@@ -78,7 +78,50 @@ namespace DistribucionTareas
             catch (Exception ex)
             {
 
-                throw ex;
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void ModificarColaborador(Colaborador pColaborador)
+        {
+            try
+            {
+                if (pColaborador!=null)
+                {
+                    Colaborador _auxColaborador = _lc.Find(x=>x.Legajo==pColaborador.Legajo);
+                    if (_auxColaborador!=null)
+                    {
+                        _auxColaborador.Legajo = pColaborador.Legajo;
+                        _auxColaborador.Nombre = pColaborador.Nombre;
+                    }
+                    if (_auxColaborador.RetornarListaTareas().Count>0)
+                    {
+                        foreach (Tarea item in _lt)
+                        {
+                            Tarea _auxTarea = _lt.Find(x=>x.Codigo==item.Codigo);
+                            if (_auxTarea!=null)
+                            {
+                                Colaborador _colaborador = item.Get_Colaborador();
+                                _auxTarea.Cliente = item.Cliente;
+                                _auxTarea.Categoría = item.Categoría;
+                                _auxTarea.Descripcion = item.Descripcion;
+                                _auxTarea.Fecha = item.Fecha;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("Colaborador no encontrado");
+                    }
+                }
+                else
+                {
+                    throw new Exception("Lista vacía");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
             }
         }
         public List<Tarea> RetornarListaTareas()
@@ -125,9 +168,8 @@ namespace DistribucionTareas
                 if (pTarea!=null)
                 {
                     Tarea _auxTarea = _lt.Find(x=>x.Codigo == pTarea.Codigo);
-                    if (_auxTarea != null)
+                    if (_auxTarea != null && _auxTarea.Get_Colaborador() == null)
                     {
-                        _auxTarea.Set_Colaborador(null);
                         _lt.Remove(_auxTarea);
                     }
                     else

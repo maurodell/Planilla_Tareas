@@ -15,11 +15,15 @@ namespace DistribucionTareas
     {
         Distribucion _d;
         Colaborador _c;
+
+        //contador codigo
+        int _codigo;
         public Form1()
         {
             InitializeComponent();
             _d = new Distribucion();
             _c = new Colaborador();
+            _codigo = 0;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -90,7 +94,7 @@ namespace DistribucionTareas
             catch (Exception ex)
             {
 
-                throw ex;
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -98,11 +102,13 @@ namespace DistribucionTareas
         {
             try
             {
+                
                 DateTime fecha = DateTime.Today;
                 string _cliente = Interaction.InputBox("Cliente: ", "Agregar Tarea");
-                if (_cliente.Length>0)
-                {
-                    _d.AgregarTarear(new Tarea(Interaction.InputBox("Categoría: ", "Agregar Tarea"), _cliente, Interaction.InputBox("Descripción: ", "Agregar Tarea"), fecha));
+                if (_cliente != null)
+                {   
+                    Tarea _auxTarea = new Tarea(_codigo++, Interaction.InputBox("Categoría: ", "Agregar Tarea"), _cliente, Interaction.InputBox("Descripción: ", "Agregar Tarea"), fecha);
+                    _d.AgregarTarear(_auxTarea);
                     ActualizarGrilla(dataGridView2, _d.RetornarListaTareas());
                 }
                 else

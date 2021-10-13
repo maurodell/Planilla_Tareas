@@ -15,3 +15,6 @@ C:\Users\mdo\Desktop\Analista Programador\2 año\1 cuatri\POO\Proyecto propios\D
 C:\Users\mdo\Desktop\Analista Programador\2 año\1 cuatri\POO\Proyecto propios\Distribución Tareas\DistribucionTareas\DistribucionTareas\obj\Debug\DistribucionTareas.csproj.CoreCompileInputs.cache
 C:\Users\mdo\Desktop\Analista Programador\2 año\1 cuatri\POO\Proyecto propios\Distribución Tareas\DistribucionTareas\DistribucionTareas\obj\Debug\DistribucionTareas.exe
 C:\Users\mdo\Desktop\Analista Programador\2 año\1 cuatri\POO\Proyecto propios\Distribución Tareas\DistribucionTareas\DistribucionTareas\obj\Debug\DistribucionTareas.pdb
+C:\Users\mdo\Desktop\Analista Programador\2 año\1 cuatri\POO\Proyecto propios\Distribución Tareas\DistribucionTareas\DistribucionTareas\bin\Debug\DistribucionTareas.exe.config
+C:\Users\mdo\Desktop\Analista Programador\2 año\1 cuatri\POO\Proyecto propios\Distribución Tareas\DistribucionTareas\DistribucionTareas\bin\Debug\DistribucionTareas.exe
+C:\Users\mdo\Desktop\Analista Programador\2 año\1 cuatri\POO\Proyecto propios\Distribución Tareas\DistribucionTareas\DistribucionTareas\bin\Debug\DistribucionTareas.pdb

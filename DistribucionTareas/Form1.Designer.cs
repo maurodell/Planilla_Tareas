@@ -45,10 +45,10 @@ namespace DistribucionTareas
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.txtCliente = new System.Windows.Forms.TextBox();
             this.txtDescrip = new System.Windows.Forms.TextBox();
+            this.txtCliente = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
@@ -165,7 +165,7 @@ namespace DistribucionTareas
             // 
             this.button7.Location = new System.Drawing.Point(1372, 1212);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(178, 61);
+            this.button7.Size = new System.Drawing.Size(214, 61);
             this.button7.TabIndex = 12;
             this.button7.Text = "Desvincular";
             this.button7.UseVisualStyleBackColor = true;
@@ -212,21 +212,14 @@ namespace DistribucionTareas
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Asignar Tareas";
             // 
-            // comboBox1
+            // txtDescrip
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(39, 67);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(321, 39);
-            this.comboBox1.TabIndex = 0;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(39, 152);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(321, 39);
-            this.comboBox2.TabIndex = 1;
+            this.txtDescrip.Enabled = false;
+            this.txtDescrip.Location = new System.Drawing.Point(39, 292);
+            this.txtDescrip.Multiline = true;
+            this.txtDescrip.Name = "txtDescrip";
+            this.txtDescrip.Size = new System.Drawing.Size(588, 122);
+            this.txtDescrip.TabIndex = 3;
             // 
             // txtCliente
             // 
@@ -236,14 +229,21 @@ namespace DistribucionTareas
             this.txtCliente.Size = new System.Drawing.Size(321, 38);
             this.txtCliente.TabIndex = 2;
             // 
-            // txtDescrip
+            // comboBox2
             // 
-            this.txtDescrip.Enabled = false;
-            this.txtDescrip.Location = new System.Drawing.Point(39, 292);
-            this.txtDescrip.Multiline = true;
-            this.txtDescrip.Name = "txtDescrip";
-            this.txtDescrip.Size = new System.Drawing.Size(588, 122);
-            this.txtDescrip.TabIndex = 3;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(39, 152);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(321, 39);
+            this.comboBox2.TabIndex = 1;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(39, 67);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(321, 39);
+            this.comboBox1.TabIndex = 0;
             // 
             // Form1
             // 

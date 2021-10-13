@@ -78,6 +78,7 @@ namespace DistribucionTareas
                 _listTarea.Categoría = pTarea.Categoría;
                 _listTarea.Cliente = pTarea.Cliente;
                 _listTarea.Descripcion = pTarea.Descripcion;
+
             }
             catch (Exception ex)
             {
